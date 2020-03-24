@@ -8,6 +8,8 @@
   margin: 0px auto;
   display: flex;
   flex-wrap: wrap;
+  width: 450px;
+  height: 450px;
   
 }
 
@@ -17,7 +19,8 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
- cursor: pointer;
+  cursor: pointer;
+  margin: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
