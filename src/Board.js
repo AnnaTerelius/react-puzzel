@@ -14,14 +14,8 @@ export const Board = () => {
    
     return ( 
         <div>
-        <h1>React puzzle game</h1>
-        <p>Click on the squares to move them (only those next to the 0 square)</p> 
-       
-            <div className="">
-              
+            <div className="container"> 
                 <Square/>
-
-              
             </div>
         </div>
     )
