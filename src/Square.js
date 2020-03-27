@@ -2,11 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 export const Square = () => {
     
-    
     const [guid, setGuid] = useState(1)
     const size = 4;
     const sizeRows = 4;
-    const tempArray = ['null']
+    const tempArray = ['']
     const squareNumbers = (size * sizeRows - 1)
 
     for (var index = 1; index <= squareNumbers; index++) {
@@ -91,7 +90,7 @@ export const Square = () => {
         
         <div key={guid} className="field">
             {numbers.map((number) => (
-                <div className={number === 'null' ? "null squares" : "number squares"} id={number} onClick={squareClicked} style={{width: Math.floor(squareWidth),  height: Math.floor(squareHeight)}}>{number}</div> 
+                <div className={number === '' ? "null squares" : "number squares"} id={number} onClick={squareClicked} style={{width: Math.floor(squareWidth),  height: Math.floor(squareHeight)}}>{number}</div> 
             ))}
             </div>
             <button className="btn" onClick={clickedBtn}>Slumpa</button>

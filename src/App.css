@@ -38,7 +38,8 @@
 }
 
 .null{
-  background-color: blueviolet;
+  background-color:none;
+  border: none;
 }
 
 .number{
