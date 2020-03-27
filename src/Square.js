@@ -3,8 +3,8 @@ import React, {useState, useEffect} from 'react';
 export const Square = () => {
     const [guid, setGuid] = useState(1)
     //const [solved, setSolved] = useState('')
-    const size = 3;
-    const sizeRows = 3;
+    const size = 4;
+    const sizeRows = 4;
     const tempArray = []
     const squareNumbers = (size * sizeRows - 1)
 
