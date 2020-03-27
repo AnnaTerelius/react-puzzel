@@ -2,15 +2,26 @@ import React, {useState, useEffect} from 'react';
 
 export const Square = () => {
     
-    const [numbers, setNumbers] = useState(['null',1 ,2 ,3 ,4 ,5 , 6, 7, 8, 9, 10, 11, 12, 13, 14])
+    
     const [guid, setGuid] = useState(1)
     const size = 4;
+    const sizeRows = 4;
+    const tempArray = ['null']
+    const squareNumbers = (size * sizeRows - 1)
+
+    for (var index = 1; index <= squareNumbers; index++) {
+        tempArray.push(index)
+      }
+
+
     const width = 400;
     const height = 400; 
-    const squareNumbers = (size * size - 1)
+    const [numbers, setNumbers] = useState(tempArray)
+   
 
-    const squareWidth = (width / size)
-    const squareHeight = (height / size)
+    const squareWidth = (width / size) 
+    console.log(squareWidth)
+    const squareHeight = (height / size) 
     
     const squareClicked = (event) => {
         //alert("click workes")
@@ -42,7 +53,7 @@ export const Square = () => {
         }
         if (swapNumbers === true){
             //numbers[5]= 7 // bytt siffran på plats nr 5 till siffran 7
-           numbers[nullNr]= event.target.id
+           numbers[nullNr]= parseInt(event.target.id)
            numbers[clickedNr]= 'null'
            setNumbers(numbers)
            setGuid(guid+1)
@@ -52,7 +63,7 @@ export const Square = () => {
     }
 
    
-    let shuffleNumbers = () => {
+    const shuffleNumbers = () => {
         let shuffled = numbers.map((a) => [Math.random(),a]).sort((a,b) => a[0]-b[0]).map((a) => a[1]);
         return shuffled
        
@@ -68,6 +79,10 @@ export const Square = () => {
         console.log('numbers är ' + numbers)
     }
  
+    //this will run once when starting the app to get the numbers shuffled (the empty array makes it run only once)
+    useEffect(() => {
+        setNumbers(shuffleNumbers)
+      }, []);
     
     
     return(
@@ -76,7 +91,7 @@ export const Square = () => {
         
         <div key={guid} className="field">
             {numbers.map((number) => (
-                <div className="squares" id={number} onClick={squareClicked} style={{width: Math.floor(squareWidth), height: Math.floor(squareHeight), fontSize: Math.floor(height / 8)}}>{number}</div> 
+                <div className={number === 'null' ? "null squares" : "number squares"} id={number} onClick={squareClicked} style={{width: Math.floor(squareWidth),  height: Math.floor(squareHeight)}}>{number}</div> 
             ))}
             </div>
             <button className="btn" onClick={clickedBtn}>Slumpa</button>

@@ -32,9 +32,17 @@
   font-weight: bold;
   cursor: pointer;
   margin: 2px;
-  background-color: rgb(169, 209, 223);
+ 
   border-radius: 10px;
   border: 1.5px solid black;
+}
+
+.null{
+  background-color: blueviolet;
+}
+
+.number{
+  background-color: rgb(169, 209, 223);
 }
 
 .btn{
