@@ -27,7 +27,7 @@ export const Square = () => {
         //if [0]is to the left or right swap places, or if [0] is 4 numbers away swap places
         console.log(event.target.id)
         let clickedNr = numbers.indexOf(parseInt(event.target.id));
-        let nullNr = numbers.indexOf('null')
+        let nullNr = numbers.indexOf('')
         const clickedRow = Math.floor(clickedNr / size);
         const nullRow = Math.floor(nullNr / size); 
         console.log('detta är rad klickad ruta: '+clickedRow)
@@ -53,7 +53,7 @@ export const Square = () => {
         if (swapNumbers === true){
             //numbers[5]= 7 // bytt siffran på plats nr 5 till siffran 7
            numbers[nullNr]= parseInt(event.target.id)
-           numbers[clickedNr]= 'null'
+           numbers[clickedNr]= ''
            setNumbers(numbers)
            setGuid(guid+1)
            console.log('numbers är ' + numbers)
