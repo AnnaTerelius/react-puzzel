@@ -38,6 +38,7 @@
 .null{
   background-color:none;
   border: none;
+  color:  lightgrey;
 }
 
 .number{

@@ -23,7 +23,7 @@ export const Square = () => {
     for (var index = 1; index <= squareNumbers; index++) {
         tempArray.push(index)
         }
-        tempArray.push('')
+        tempArray.push(0)
 
     let width = 400;
     let height = 400; 
@@ -38,7 +38,7 @@ export const Square = () => {
     const squareClicked = (event) => {
         console.log(event.target.id)
         const clickedNr = numbers.indexOf(parseInt(event.target.id));
-        const nullNr = numbers.indexOf('')
+        const nullNr = numbers.indexOf(0)
         const clickedRow = Math.floor(clickedNr / size);
         const nullRow = Math.floor(nullNr / size); 
         let swapNumbers = false
@@ -55,7 +55,7 @@ export const Square = () => {
         }
         if (swapNumbers === true){
            numbers[nullNr]= parseInt(event.target.id)
-           numbers[clickedNr]= ''
+           numbers[clickedNr]= 0
            setNumbers(numbers)
            setGuid(guid+1)
            console.log('numbers are ' + numbers)
@@ -94,7 +94,7 @@ export const Square = () => {
             <div key={guid} className="field" style={{width: width}}>
                 {numbers.map((number) => (
                     <>
-                    <div className={number === '' ? "null squares" : "number squares"} id={number} onClick={squareClicked} style={{width: Math.floor(squareWidth),  height: Math.floor(squareHeight)}}>{number}</div> 
+                    <div className={number === 0 ? "null squares" : "number squares"} id={number} onClick={squareClicked} style={{width: Math.floor(squareWidth),  height: Math.floor(squareHeight)}}>{number}</div> 
                     </>
                 ))}
             </div>
