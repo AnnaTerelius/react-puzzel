@@ -1,9 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Square } from './Square';
-
-//var size = 4;
-//var width = 400;
-//var height = width; 
+import { Square } from './Square'; 
 
 export const Board = () => {
 

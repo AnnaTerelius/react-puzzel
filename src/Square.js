@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
 
 export const Square = () => {
-    const [guid, setGuid] = useState(1)
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    //settings
     const size = 4;
     const sizeRows = 4;
+
+    //const numberOfMoves is needed otherwise React will updatet const numbers but not re-render
+    const [numberOfMoves, setNumberOfMoves] = useState(0)
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const tempArray = []
     const squareNumbers = (size * sizeRows - 1)
-   // const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
-    //const windowWidth = window.innerWidth;
     console.log(windowWidth)
 
     const updateWidthAndHeight = () => {
@@ -57,7 +58,7 @@ export const Square = () => {
            numbers[nullNr]= parseInt(event.target.id)
            numbers[clickedNr]= 0
            setNumbers(numbers)
-           setGuid(guid+1)
+           setNumberOfMoves(numberOfMoves+1)
            console.log('numbers are ' + numbers)
         }       
     }
@@ -79,8 +80,8 @@ export const Square = () => {
 
     //function to check if puzzle is solved
     const isEqual = () => {
-        // comapring each element of arrays 
-        for(var i=0;i<tempArray.length;i++){  
+        // comparing each element of both arrays 
+        for(var i=0; i<tempArray.length; i++){  
             if(tempArray[i]!==numbers[i]){  
                 return false; 
             }
@@ -90,8 +91,8 @@ export const Square = () => {
    
     return(
         <>
-            {isEqual() === true ? <h1 classNeame="textWhenFinished">Wow you made it!</h1> : ''}
-            <div key={guid} className="field" style={{width: width}}>
+            {isEqual() === true ? <h1 classNeame="textWhenFinished">Wow you made it in {numberOfMoves} moves!</h1> : ''}
+            <div key={numberOfMoves} className="field" style={{width: width}}>
                 {numbers.map((number) => (
                     <>
                     <div className={number === 0 ? "null squares" : "number squares"} id={number} onClick={squareClicked} style={{width: Math.floor(squareWidth),  height: Math.floor(squareHeight)}}>{number}</div> 
